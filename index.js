@@ -70,6 +70,13 @@ client.on("message", async (message) => {
     }
   }
   if (command === "eval") {
+    const clean = (text) => {
+      if (typeof text === "string")
+        return text
+          .replace(/`/g, "`" + String.fromCharCode(8203))
+          .replace(/@/g, "@" + String.fromCharCode(8203));
+      else return text;
+    };
     if (message.author.id !== process.env.OWNER) return;
     try {
       const code = args.join(" ");
@@ -81,13 +88,6 @@ client.on("message", async (message) => {
     } catch (err) {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
-    const clean = (text) => {
-      if (typeof text === "string")
-        return text
-          .replace(/`/g, "`" + String.fromCharCode(8203))
-          .replace(/@/g, "@" + String.fromCharCode(8203));
-      else return text;
-    };
   }
 });
 
