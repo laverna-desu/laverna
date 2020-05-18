@@ -118,6 +118,21 @@ client.on("message", async (message) => {
   };
   message.channel.send({ embed });
   };
+  if(command == "rps")
+  {
+        function doRandHT() {
+  var rand = ['PAPER!','ROCK!','SCISSORS!'];
+  
+  return rand[Math.floor(Math.random()*rand.length)];
+  }
+  
+   const embed = {
+  "title": `ROCK! PAPER! SCISSORS!`,
+  "description": doRandHT(),
+  "color": 313131,
+  };
+  message.channel.send({ embed });
+  };
 });
 
 client.login(config.token);
