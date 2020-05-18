@@ -38,7 +38,7 @@ client.on("message", async (message) => {
 
   if (command === "ahegao") {
     fetch(
-      "https://raw.githubusercontent.com/egecelikci/ahegao/master/data.json"
+      "https://ahegao.egecelikci.com/api"
     )
       .then((response) => response.json())
       .then((response) =>
@@ -46,9 +46,7 @@ client.on("message", async (message) => {
           embed: {
             image: {
               url:
-                response.ahegao[
-                  Math.floor(Math.random() * response.ahegao.length)
-                ],
+                response.msg
             },
           },
         })
@@ -89,6 +87,8 @@ client.on("message", async (message) => {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
   }
+
+  
 });
 
 client.login(config.token);
