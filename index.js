@@ -103,7 +103,21 @@ client.on("message", async (message) => {
       },
     });
   }
-
+  if(command == "flipcoin")
+  {
+        function doRandHT() {
+  var rand = ['HEADS!','TAILS!'];
+  
+  return rand[Math.floor(Math.random()*rand.length)];
+  }
+  
+   const embed = {
+  "title": `Here is the winner!`,
+  "description": doRandHT(),
+  "color": 323232,
+  };
+  message.channel.send({ embed });
+  };
 });
 
 client.login(config.token);
