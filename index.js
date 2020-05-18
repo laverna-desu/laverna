@@ -87,6 +87,23 @@ client.on("message", async (message) => {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
   }
+  if (command === "avatar") {
+    if (!message.mentions.users.first()) {
+      user = message.author;
+      avatar = user.displayAvatarURL();
+    } else {
+      user = message.mentions.members.first();
+      avatar = client.users.cache.get(user.id).displayAvatarURL();
+    }
+    message.channel.send({
+      embed: {
+        image: {
+          url: avatar,
+        },
+      },
+    });
+  }
+
 });
 
 client.login(config.token);
