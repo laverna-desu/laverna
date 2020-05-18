@@ -87,8 +87,6 @@ client.on("message", async (message) => {
       message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
     }
   }
-
-  
 });
 
 client.login(config.token);
