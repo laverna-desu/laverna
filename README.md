@@ -1,5 +1,5 @@
 # chomusuke
-
+thanks to egecelikci
 ## installation
 
 ```sh
